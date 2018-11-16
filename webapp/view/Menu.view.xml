@@ -1,0 +1,23 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" height="100%" controllerName="aplicacao.controller.Menu">
+  <Page title="Cockpit movimentação de estoque" showHeader="true" showNavButton="true" navButtonPress="onNavBack">
+  	<!--<Toolbar height="100px">-->
+  	<!--	<content>-->
+	  <!--		<Image src="js/medicamental.jpg" class="" width="100%" height="100%" backgroundSize="80%">-->
+	  <!--			<layoutData>-->
+			<!--		<layout:GridData span="L3 M5"/>-->
+			<!--	</layoutData>-->
+	  <!--		</Image>-->
+  	<!--	</content>-->
+  	<!--</Toolbar>-->
+  	<TileContainer id="container" tileDelete="handleTileDelete" tiles="{tileModel>/}">
+	      <StandardTile icon="sap-icon://{tileModel>icon}" type="{tileModel>type}" number="{tileModel>number}" numberUnit="{tileModel>numberUnit}" title="{tileModel>title}" info="{tileModel>info}" infoState="{tileModel>infoState}" app:opcao="{tileModel>id}" press="onTile"/>
+	    </TileContainer>
+  <footer>
+      <Bar id="__bar0">
+          <contentMiddle>
+              <Label text="{modelAux>/werks} - {modelAux>/nomeCentro}" width="100%" id="__label0" design="Bold"/>
+          </contentMiddle>
+      </Bar>
+  </footer>
+  </Page>
+</mvc:View>

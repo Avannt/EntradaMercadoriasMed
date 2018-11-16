@@ -1,0 +1,62 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="aplicacao.controller.MovFlowRack_2"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" displayBlock="true">
+	<Page id="detail" title="Confirmação de quantidades " contentOnlyBusy="true" busy="false" floatingFooter="false" navButtonPress="onNavBack"
+		showNavButton="false">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormChange354" editable="true">
+					<!--<f:title>-->
+					<!--	<core:Title text="Address"/>-->
+					<!--</f:title>-->
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="3" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Material">
+									<f:fields>
+										<Input id="idMaterial" type="Text" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement label="Qtd caixa">
+									<f:fields>
+										<Input id="idQtdCaixa" type="Number" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<!--<f:FormElement label="Qtd UN">-->
+								<!--	<f:fields>-->
+								<!--		<Input id="idQtdUN" editable="false"/>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+								<f:FormElement label="Qtd Proposta">
+									<f:fields>
+										<Input id="idQtdProposta" type="Text" submit="onQtdCaixas"/>
+									</f:fields>
+								</f:FormElement>
+								<!--<f:FormElement label="UN">-->
+								<!--	<f:fields>-->
+								<!--		<Input id="idUN" editable="false"/>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="idButtonFoward" type="Accept" width="100%" text="Confirmar Quantidade" icon="sap-icon://accept" press="onPress" editable="false"/>
+					<Button id="idButtonBack" type="Reject" width="100%" text="Cancelar" icon="sap-icon://decline" press="onNavBack"/>
+					<!--<Button type="Emphasized" text="Editar"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

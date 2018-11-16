@@ -1,0 +1,53 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aplicacao.controller.MovFlowRack_1" displayBlock="true">
+	<Page id="detail" title="{i18n>titlePageFlowRack}" contentOnlyBusy="true" busy="false" floatingFooter="false" navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			<VBox>
+				<!--<VBox alignContent="Center">-->
+				<form:SimpleForm minWidth="1024" maxContainerCols="3" editable="true" layout="ResponsiveGridLayout" labelSpanL="1" labelSpanS="1" labelSpanM="1" labelSpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" emptySpanXL="0" columnsL="6" columnsXL="4" columnsM="12" adjustLabelSpan="true" class="editableForm">
+					<Title id="tableHeader" text="{i18n>CollumnTableNT}" textAlign="Right">
+						<layoutData>
+							<layout:GridData span="L2 M3 S4" linebreakS="true"/>
+						</layoutData>
+					</Title>
+					<SearchField id="idInputReceiving" liveChange="onReceivingSearch" search="onReceivingSearch" tooltip="" width="auto" placeholder="">
+						<layoutData>
+							<layout:GridData span="L4 M6 S6"/>
+						</layoutData>
+					</SearchField>
+					<Button id="idRefresh" text="" icon="sap-icon://refresh" class="sapUiSmallMarginEnd" tooltip="" press="onRefresh" width="100%">
+						<layoutData>
+							<layout:GridData span="L1 M1 S2"/>
+						</layoutData>
+					</Button>
+				</form:SimpleForm>
+				<!--</VBox>-->
+				<Table id="idTableNT" busyIndicatorDelay="0" class="" growing="true" growingDirection="Downwards" enableBusyIndicator="true" 
+					noDataText="{i18n>NoDataFound}" width="auto" itemPress="onPress" growingScrollToLoad="true" growingThreshold="50"
+					items="{ path: 'RecebimentoNT_FR>/', sorter: { path: 'Tbnum', descending: false } }">
+					<!--<headerToolbar>-->
+					<!--</headerToolbar>-->
+					<columns>
+						<Column id="nameColumn" width="100px">
+							<Text id="nameColumnTitle" text="{i18n>CollumnTableNT}"/>
+						</Column>
+						<Column minScreenWidth="600px" demandPopin="true">
+							<Text text="Material" textAlign="Left"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="400px">
+							<Text text="Qtd Tranf." textAlign="Left"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation">
+							<cells>
+								<Text text="{RecebimentoNT_FR>Tbnum}"/>
+								<Text text="{RecebimentoNT_FR>Matnr} - {RecebimentoNT_FR>Maktg}" textAlign="Left"/>
+								<Text text="{RecebimentoNT_FR>Menge}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

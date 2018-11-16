@@ -1,0 +1,84 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m"
+		xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" controllerName="aplicacao.controller.AjusteInventarioSuperEstoque_1"
+		displayBlock="true">
+		<Page id="detail" title="{i18n>titlePageWarehouseSuperStock}" contentOnlyBusy="true" busy="false" floatingFooter="false"
+			navButtonPress="onNavBack" showNavButton="true">
+			<content>
+				<VBox>
+					<f:Form id="FormToolbar2" editable="true" ariaLabelledBy="Title1">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="1" labelSpanL="1" labelSpanM="2" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="2" emptySpanL="1"
+								emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true" width="100%"/>
+						</f:layout>
+						<f:FormContainer ariaLabelledBy="Title6">
+							<f:formElements>
+								<f:FormElement label="Posição">
+									<f:fields>
+										<Input id="idInputPosicao" submit="onLoadaAreasArmazenamentoSuperEstoque">
+											<layoutData>
+												<layout:GridData span="L3 M5" />
+											</layoutData>
+										</Input>
+										<Button id="idButtonCodePosicao" text="Ler Cód. Posição" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+											press="onBarcodeOpen" width="100%"></Button>
+									</f:fields>
+								</f:FormElement>
+								<!--<f:FormElement label="">-->
+								<!--	<f:fields>-->
+										
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+							</f:formElements>
+						</f:FormContainer>
+					</f:Form>
+					<Table id="idTableItensMateriais" mode="SingleSelect" busyIndicatorDelay="0" class="" growing="true" growingScrollToLoad="true"
+						noDataText="{i18n>NoDataFoundAdjustmentSuperStock}" itemPress="onPress" updateFinished="onUpdateFinished" width="auto" 
+						items="{ path: 'AreasArmazenamentoSuperEstoque>/', sorter: { path: 'Matnr', descending: false } }">
+						<!--<headerToolbar>-->
+						<!--</headerToolbar>-->
+						<columns>
+							<Column width="70px">
+								<Text text="{i18n>CollumnTableNumWarehouse}"/>
+							</Column>
+							<Column minScreenWidth="tablet" demandPopin="true" >	
+								<Text text="{i18n>CollumnTableCharg}"/>
+							</Column>
+							<Column width="80px">
+								<Text id="ActiverColumn" text="{i18n>CollumnTableActive}"/>
+							</Column>
+							<Column minScreenWidth="800px" width="auto" demandPopin="true">
+								<Text text="{i18n>CollumnTableMaterial}"/>
+							</Column>
+							<Column minScreenWidth="800px" visible="false" >
+								<Text text=""/>
+							</Column>
+							<Column minScreenWidth="800px" visible="false" >
+								<Text text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active">
+								<cells>
+									<Text text="{AreasArmazenamentoSuperEstoque>Ivnum}"/>
+									<Text text="{AreasArmazenamentoSuperEstoque>Charg}"/>
+									<ObjectStatus text="{AreasArmazenamentoSuperEstoque>StatusText}" icon="{AreasArmazenamentoSuperEstoque>Icone}" state="{AreasArmazenamentoSuperEstoque>Status}" textAlign="Left"/>
+									<Text text="{AreasArmazenamentoSuperEstoque>Matnr} - {AreasArmazenamentoSuperEstoque>Maktx}"/>
+									<Text text="{AreasArmazenamentoSuperEstoque>Lqnum}"/>
+									<Text text="{AreasArmazenamentoSuperEstoque>Lgpla}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+			</content>
+			<footer>
+				<Toolbar>
+					<content>
+						<Button id="idButtonCriarInventario" type="Accept" width="100%" text="Ativar" icon="sap-icon://activate" press="onAtivarInventario"/>
+						<Button id="idButtonDesativar" type="Reject" width="100%" text="Desativar" icon="sap-icon://decline" press="onDesativarInventario"/>
+						<!--<Button type="Emphasized" text="Editar"/>-->
+					</content>
+				</Toolbar>
+			</footer>
+		</Page>
+	</mvc:View>

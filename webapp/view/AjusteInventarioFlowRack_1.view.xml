@@ -1,0 +1,65 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aplicacao.controller.AjusteInventarioFlowRack_1"
+	displayBlock="true">
+	<Page id="detail" title="{i18n>titlePageWarehouse}" contentOnlyBusy="true" busy="false" floatingFooter="false" navButtonPress="onNavBack"
+		showNavButton="true">
+		<content>
+			<VBox>
+				<!--<VBox alignContent="Center">-->
+				<form:SimpleForm minWidth="1024" maxContainerCols="3" editable="true" layout="ResponsiveGridLayout" labelSpanL="1" labelSpanS="1"
+					labelSpanM="1" labelSpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" emptySpanXL="0" columnsL="6" columnsXL="4" columnsM="12"
+					adjustLabelSpan="true" class="editableForm">
+					<Title id="tableHeader" text="{i18n>labelComboBoxArmazenamento}" textAlign="Right">
+						<layoutData>
+							<layout:GridData span="L3 M4 S6"/>
+						</layoutData>
+					</Title>
+					<ComboBox id="idAreaArmazenamento" showSecondaryValues="true" items="{ path: 'ZonasArmazenamento>/', sorter: { path: 'Lgber' } }"
+						selectionChange="onBuscaAreaArmazenagem" >
+						<core:ListItem key="{ZonasArmazenamento>Lgber}" text="{ZonasArmazenamento>Lbert}" additionalText="{ZonasArmazenamento>Lgber}"/>
+						<layoutData>
+							<layout:GridData span="L4 M6 S6"/>
+						</layoutData>
+					</ComboBox>
+				</form:SimpleForm>
+				<!--</VBox>-->
+				<Table id="idTableAreasArmazenagem" mode="SingleSelect" busyIndicatorDelay="0" class="" growing="true" growingScrollToLoad="true" noDataText="{i18n>NoDataFoundAreaArmazenamento}"
+					updateFinished="onUpdateFinished" width="auto" itemPress="onPress"
+					items="{ path: 'AreasArmazenamento>/', sorter: { path: 'Lgpla', descending: false } }">
+					<!--<headerToolbar>-->
+					<!--</headerToolbar>-->
+					<columns>
+						<Column id="InventoryNumberColumn" width="70px">
+							<Text id="inventoryNumber" text="{i18n>CollumnTableInventoryNumber}"/>
+						</Column>
+						<Column id="PositionColumn"  width="auto">
+							<Text id="nameColumnPosition" text="{i18n>CollumnTablePosition}"/>
+						</Column>
+						<Column id="ActiveColumn">
+							<Text id="ActiverColumn" text="{i18n>CollumnTableActive}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Active">
+							<cells>
+								<Text text="{AreasArmazenamento>Ivnum}"/>
+								<Text text="{AreasArmazenamento>Lgpla}"/>
+								<ObjectStatus text="{AreasArmazenamento>StatusText}" icon="{AreasArmazenamento>Icone}" state="{AreasArmazenamento>Status}" textAlign="Left"/>
+								<!--<Text text="{AreasArmazenamento>Skzsi}"/>-->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<Button id="idButtonAtivarInventario" type="Accept" width="100%" text="Ativar" icon="sap-icon://activate" press="onAtivarInventario"/>
+					<Button id="idButtonCancelar" type="Reject" width="100%" text="Desativar" icon="sap-icon://decline" press="onDesativarInventario"/>
+					<!--<Button type="Emphasized" text="Editar"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

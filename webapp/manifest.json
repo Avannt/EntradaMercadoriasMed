@@ -1,0 +1,224 @@
+{
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "aplicacao",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"rootView": {
+			"viewName": "aplicacao.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.50",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.52.0"
+				},
+				"sap.m": {
+					"minVersion": "1.52.0"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.52.0"
+				},
+				"sap.ui.commons": {
+					"minVersion": ""
+				},
+				"sap.ui.table": {
+					"minVersion": ""
+				},
+				"sap.ushell": {
+					"minVersion": ""
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "aplicacao.i18n.i18n"
+				}
+			},
+			"aprovacaoOrdemVenda": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Movimentacao.json"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "aplicacao.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true,
+				"bypassed": {
+					"target": ["notFound"]
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Login",
+					"target": "Login"
+				},
+				{
+					"pattern": "Menu",
+					"name": "Menu",
+					"target": "Menu"
+				},
+				{
+					"pattern": "EntradaMercadoria_1",
+					"name": "EntradaMercadoria_1",
+					"target": "EntradaMercadoria_1"
+				},
+				{
+					"pattern": "EntradaMercadoria_2",
+					"name": "EntradaMercadoria_2",
+					"target": "EntradaMercadoria_2"
+				},
+				{
+					"pattern": "EntradaMercadoria_3",
+					"name": "EntradaMercadoria_3",
+					"target": "EntradaMercadoria_3"
+				},
+				{
+					"pattern": "EntradaMercadoria_4",
+					"name": "EntradaMercadoria_4",
+					"target": "EntradaMercadoria_4"
+				},
+				{
+					"pattern": "MovFlowRack_1",
+					"name": "MovFlowRack_1",
+					"target": "MovFlowRack_1"
+				},
+				{
+					"pattern": "MovFlowRack_2",
+					"name": "MovFlowRack_2",
+					"target": "MovFlowRack_2"
+				},
+				{
+					"pattern": "MovFlowRack_3",
+					"name": "MovFlowRack_3",
+					"target": "MovFlowRack_3"
+				},
+				{
+					"pattern": "TransferenciaEstoque_1",
+					"name": "TransferenciaEstoque_1",
+					"target": "TransferenciaEstoque_1"
+				},
+				{
+					"pattern": "AjusteInventarioFlowRack_1",
+					"name": "AjusteInventarioFlowRack_1",
+					"target": "AjusteInventarioFlowRack_1"
+				},
+				{
+					"pattern": "AjusteInventarioSuperEstoque_1",
+					"name": "AjusteInventarioSuperEstoque_1",
+					"target": "AjusteInventarioSuperEstoque_1"
+				},
+				{
+					"pattern": "AjusteInventarioSuperEstoque_2",
+					"name": "AjusteInventarioSuperEstoque_2",
+					"target": "AjusteInventarioSuperEstoque_2"
+				}
+			],
+			"targets": {
+				"Login": {
+					"viewName": "Login",
+					"viewLevel": 1
+				},
+				"Menu": {
+					"viewName": "Menu",
+					"viewLevel": 1
+				},
+				"EntradaMercadoria_1": {
+					"viewName": "EntradaMercadoria_1",
+					"viewLevel": 1
+				},
+				"EntradaMercadoria_2": {
+					"viewName": "EntradaMercadoria_2",
+					"viewLevel": 1
+				},
+				"EntradaMercadoria_3": {
+					"viewName": "EntradaMercadoria_3",
+					"viewLevel": 1
+				},
+				"EntradaMercadoria_4": {
+					"viewName": "EntradaMercadoria_4",
+					"viewLevel": 1
+				},
+				"MovFlowRack_1": {
+					"viewName": "MovFlowRack_1",
+					"viewLevel": 1
+				},
+				"MovFlowRack_2": {
+					"viewName": "MovFlowRack_2",
+					"viewLevel": 1
+				},
+				"MovFlowRack_3": {
+					"viewName": "MovFlowRack_3",
+					"viewLevel": 1
+				},
+				"TransferenciaEstoque_1": {
+					"viewName": "TransferenciaEstoque_1",
+					"viewLevel": 1
+				},
+				"AjusteInventarioFlowRack_1":{
+					"viewName": "AjusteInventarioFlowRack_1",
+					"viewLevel": 1
+				},
+				"AjusteInventarioSuperEstoque_1":{
+					"viewName": "AjusteInventarioSuperEstoque_1",
+					"viewLevel": 1
+				},
+				"AjusteInventarioSuperEstoque_2":{
+					"viewName": "AjusteInventarioSuperEstoque_2",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				}
+			}
+		}
+	},
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zentrada_merc",
+        "_version": "1.1.0"
+    }
+}

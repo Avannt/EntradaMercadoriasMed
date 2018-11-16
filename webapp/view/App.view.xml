@@ -1,0 +1,3 @@
+<mvc:View controllerName="aplicacao.controller.App" displayBlock="false" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc">
+	<App id="app" width="auto" height="100%"></App>
+</mvc:View>

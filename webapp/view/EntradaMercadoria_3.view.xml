@@ -1,0 +1,61 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="aplicacao.controller.EntradaMercadoria_3" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" displayBlock="true">
+	<Page id="detail" title="Confirmação de quantidades - {modelAux>/Receiving}" contentOnlyBusy="true" busy="false" floatingFooter="false"
+		navButtonPress="onNavBack" showNavButton="false">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormChange354" editable="true">
+					<!--<f:title>-->
+					<!--	<core:Title text="Address"/>-->
+					<!--</f:title>-->
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="3" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Qtd caixa">
+									<f:fields>
+										<Input id="idMaterial" type="Text" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement label="Qtd caixa">
+									<f:fields>
+										<Input id="idQtdCaixa" type="Number" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Qtd UN">
+									<f:fields>
+										<Input id="idQtdUN" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Qtd Proposta">
+									<f:fields>
+										<Input id="idQtdProposta" type="Text" submit="onQtdCaixas"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="UN">
+									<f:fields>
+										<Input id="idUN" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<Button id="idButtonFoward" type="Accept" text="Confirmar Quantidade" width="100%" icon="sap-icon://accept" press="onPress" editable="false"/>
+				<Button id="idButtonRecalculate" type="Emphasized" text="Recalcular Caixas" width="100%" icon="sap-icon://database" press="onQtdCaixas"
+					editable="false"/>
+				<Button id="idButtonBack" type="Reject" text="Cancelar" width="100%" icon="sap-icon://decline" press="onNavBack"/>
+				<!--<Button type="Emphasized" text="Editar"/>-->
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

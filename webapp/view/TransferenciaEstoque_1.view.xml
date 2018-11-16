@@ -1,0 +1,140 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	controllerName="aplicacao.controller.TransferenciaEstoque_1" displayBlock="true">
+	<Page id="detail" title="{i18n>TittlePageStockTransfer}" busyIndicatorDelay="0" contentOnlyBusy="true" busy="false" floatingFooter="false"
+		navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			<VBox class="">
+				<f:Form id="FormToolbar2" editable="true" ariaLabelledBy="Title1">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="1" labelSpanL="1" labelSpanM="2" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="2" emptySpanL="2"
+							emptySpanM="2" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true" width="100%"/>
+					</f:layout>
+					<f:FormContainer ariaLabelledBy="Title6">
+						<f:toolbar>
+							<Toolbar>
+								<Title id="Title1" text="Dados de Origem " level="H4" titleStyle="H4"/>
+								<!--<ToolbarSpacer/>-->
+								<!--<Button icon="sap-icon://settings"/>-->
+							</Toolbar>
+						</f:toolbar>
+						<f:formElements>
+							<f:FormElement label="Tipo de Depósito">
+								<f:fields>
+									<ComboBox id="idTiposDepositosOrigem" editable="false" showSecondaryValues="true" items="{ path: 'tipoDepositoOrigem>/'}"
+										selectionChange="onTipoDepositoChange">
+										<core:ListItem key="{tipoDepositoOrigem>Lgtyp}" text="{tipoDepositoOrigem>Lgtyp} - {tipoDepositoOrigem>Ltypt}"
+											additionalText="{tipoDepositoOrigem>Lgtyp}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Posição">
+								<f:fields>
+									<Input id="idInputPosicao" submit="onBuscaMateriais">
+										<layoutData>
+											<layout:GridData span="L3 M5"/>
+										</layoutData>
+									</Input>
+									<Button id="idButtonCodePosicao" text="Ler Cód. Posição" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+										press="onBarcodeOpen2" width="100%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement id="idFormTable" label="" visible="false">
+								<f:fields>
+									<Table id="idListaMateriais" busyIndicatorDelay="0" alternateRowColors="true" growing="true" growingScrollToLoad="true"
+										noDataText="Nenhum material encontrado!" width="auto" mode="None" itemPress="onMaterialSelecionado"
+										items="{ path: 'ListaMateriais>/', sorter: { path: 'IdItem', descending: true }}">
+										<columns>
+											<Column>
+												<Text text="Nº Mat" width="60px" textAlign="Left"/>
+											</Column>
+											<Column>
+												<Text text="{i18n>CollumnCharge}" textAlign="Left"/>
+											</Column>
+											<Column>
+												<Text text="Data Venc" textAlign="Left"/>
+											</Column>
+											<Column demandPopin="true" minScreenWidth="800px" popinDisplay="Inline">
+												<Text text="{i18n>CollumnQuantity}" textAlign="Left"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<cells>
+													<Text text="{ListaMateriais>Matnr}" textAlign="Left"/>
+													<Text text="{ListaMateriais>Charg}" textAlign="Left"/>
+													<Text text="{ListaMateriais>Vfdat}" textAlign="Left"/>
+													<Text text="{ListaMateriais>Gesme}" textAlign="Left"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Etiqueta">
+								<f:fields>
+									<!--<Label text="" textAlign="Right"></Label>-->
+									<Input id="idInputEtiqueta" submit="onEtiqueta">
+										<layoutData>
+											<layout:GridData span="L3 M5"/>
+										</layoutData>
+									</Input>
+									<Button id="idButtonCodeEtiqueta" text="Ler Cód. Etiqueta" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+										press="onBarcodeOpen1" width="100%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Quantidade">
+								<f:fields>
+									<Input id="idInputQuantidade">
+										<layoutData>
+											<layout:GridData span="L3 M5"/>
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer ariaLabelledBy="Title6">
+						<f:toolbar>
+							<Toolbar>
+								<Title id="Title2" text="Dados de Destino " level="H4" titleStyle="H4"/>
+								<!--<ToolbarSpacer/>-->
+								<!--<Button icon="sap-icon://settings"/>-->
+							</Toolbar>
+						</f:toolbar>
+						<f:FormElement label="Tipo de Depósito">
+							<f:fields>
+								<ComboBox id="idTiposDepositosDestino" showSecondaryValues="true" items="{ path: 'tipoDepositoDestino>/'}"
+									selectionChange="onChangeTipoDepositoDestino">
+									<core:ListItem key="{tipoDepositoDestino>Lgtyp}" text="{tipoDepositoDestino>Lgtyp} - {tipoDepositoDestino>Ltypt}"
+										additionalText="{tipoDepositoDestino>Lgtyp}"/>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Posição de Destino" id="idFormPosicaoDestino" visible="false">
+							<f:fields>
+								<Input id="idInputPosicaoDestino">
+									<layoutData>
+										<layout:GridData span="L3 M5"/>
+									</layoutData>
+								</Input>
+								<Button id="idButtonCodePosicaoDestino" text="Ler Cód. Posição Destino" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+									press="onBarcodeOpen3" width="100%"/>
+							</f:fields>
+						</f:FormElement>
+					</f:FormContainer>
+				</f:Form>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="idButtonTranferir" type="Accept" width="50%" text="Transferir" icon="sap-icon://enter-more" press="onTransferir"/>
+					<!--<Button id="idButtonCancelar" type="Reject" width="100%" text="Cancelar" icon="sap-icon://decline" press="onNavBack"/>-->
+					<!--<Button type="Emphasized" text="Editar"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,85 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	controllerName="aplicacao.controller.AjusteInventarioSuperEstoque_2" displayBlock="true">
+	<Page id="detail" title="{i18n>titlePageWarehouseSuperStock} - {modelAux>/Lgtyp}" contentOnlyBusy="true" busy="false" enableScrolling="true"
+		navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormToolbar2" editable="true" ariaLabelledBy="Title1">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="1" labelSpanL="1" labelSpanM="2" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="2" emptySpanL="2"
+							emptySpanM="2" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true" width="100%"/>
+					</f:layout>
+					<f:FormContainer ariaLabelledBy="Title6">
+						<f:formElements>
+							<f:FormElement label="Etiqueta">
+								<f:fields>
+									<!--<Label text="" textAlign="Right"></Label>-->
+									<Input id="idInputEtiqueta" submit="onBeepItens">
+										<layoutData>
+											<layout:GridData span="L3 M5"/>
+										</layoutData>
+									</Input>
+									<Button id="idButtonCodeEtiqueta" text="Ler Cód. Etiqueta" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+										press="onBarcodeOpen1" width="100%"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:Form>
+				<Table id="idTableItens" busyIndicatorDelay="0" alternateRowColors="true" class="" growing="true" growingScrollToLoad="true"
+					noDataText="Nenhuma caixa alocada!" updateFinished="onUpdateFinished" width="auto" mode="Delete" delete="onDelete"
+					items="{ path: 'ItensGuardados>/', sorter: { path: 'IdItem', descending: true }}">
+					<!--<headerToolbar>-->
+					<!--	<Toolbar>-->
+					<!--		<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+					<!--		<ToolbarSpacer/>-->
+					<!--		<SearchField id="searchField" search="onSearch" tooltip="{i18n>worklistSearchTooltip}" width="auto"/>-->
+					<!--	</Toolbar>-->
+					<!--</headerToolbar>-->
+					<columns>
+						<Column>
+							<Text text="{i18n>CollumnTableId}" width="30px" textAlign="Left"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>CollumnTableNumInventario}" width="80px" textAlign="Left"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>CollumnMaterial}" width="60px" textAlign="Left"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>CollumnCharge}" textAlign="Left"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>CollumnTableStatus}" width="60px" textAlign="Left"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="800px" popinDisplay="Inline">
+							<Text text="{i18n>CollumnQuantity}" textAlign="Left"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Inactive">
+							<cells>
+								<Text text="{ItensGuardados>Ident}" textAlign="Left"/>
+								<Text text="{ItensGuardados>Ivnum}" textAlign="Left"/>
+								<Text text="{ItensGuardados>Matnr}" textAlign="Left"/>
+								<Text text="{ItensGuardados>Charg}" textAlign="Left"/>
+								<ObjectStatus text="{ItensGuardados>StatusText}" icon="{ItensGuardados>Icone}" state="{ItensGuardados>Status}" textAlign="Left"/>
+								<Text text="{ItensGuardados>Vemng}" textAlign="Left"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="idButtonFecharInventario" type="Accept" width="50%" text="Fechar Inventário" icon="sap-icon://inspect-down"
+						press="onFinalizarInventario"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,58 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aplicacao.controller.EntradaMercadoria_2" displayBlock="true">
+	<Page id="detail" title="{i18n>PageTitleItensNT} - {modelAux>/Receiving}" busyIndicatorDelay="0" contentOnlyBusy="true" busy="false" floatingFooter="false" navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			<VBox>
+				<Table id="tableItensNT" busyIndicatorDelay="{worklistView>/tableBusyDelay}" class="" growing="true" growingScrollToLoad="true" noDataText="{worklistView>/tableNoDataText}" itemPress="onPress" updateFinished="onUpdateFinished" width="auto" items="{ path: 'RecebimentoPendente>/', sorter: { path: 'Tbpos', descending: false } }">
+					<!--<headerToolbar>-->
+					<!--	<Toolbar>-->
+					<!--		<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+					<!--		<ToolbarSpacer/>-->
+					<!--		<SearchField id="searchField" search="onSearch" tooltip="{i18n>worklistSearchTooltip}" width="auto"/>-->
+					<!--	</Toolbar>-->
+					<!--</headerToolbar>-->
+					<columns>
+						<Column width="80px">
+							<Text text="{i18n>Collumn_NrItemNT}" textAlign="Left"/>
+						</Column>
+						<Column minScreenWidth="1000px" demandPopin="true" popinDisplay="Inline">
+							<Text text="{i18n>Collumn_Material}" textAlign="Left"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="600px">
+							<Text text="{i18n>Collumn_QtdTranferencia}" textAlign="Left"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="600px">
+							<Text text="{i18n>Collumn_Lote}" textAlign="Left"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+							<Text id="nameSupplier" text="Fornecedor"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>Collumn_Status}" textAlign="Left"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation">
+							<cells>
+								<Text text="{RecebimentoPendente>Tbpos}" textAlign="Left"/>
+								<Text text="{RecebimentoPendente>Matnr} - {RecebimentoPendente>Maktg}" textAlign="Left"/>
+								<Text text="{RecebimentoPendente>Menge}" textAlign="Left"/>
+								<Text text="{RecebimentoPendente>Charg}" textAlign="Left"/>
+								<Text text="{RecebimentoPendente>Lifnr} - {RecebimentoPendente>Name1}" textAlign="Left"/>
+								<ObjectStatus icon="{RecebimentoPendente>icone}" state="{RecebimentoPendente>status}" textAlign="Left"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="idButtonFoward" type="Accept" width="50%" text="Gerar O.T." icon="sap-icon://action" press="onGerarOT" editable="false"/>
+					<!--<Button type="Emphasized" text="Editar"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

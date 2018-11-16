@@ -1,0 +1,51 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aplicacao.controller.EntradaMercadoria_1" displayBlock="true">
+	<Page id="detail" title="{i18n>titlePageCommodity}" contentOnlyBusy="true" busy="false" floatingFooter="false" navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			<VBox>
+				<!--<VBox alignContent="Center">-->
+				<form:SimpleForm minWidth="1024" maxContainerCols="3" editable="true" layout="ResponsiveGridLayout" labelSpanL="1" labelSpanS="1" labelSpanM="1" labelSpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" emptySpanXL="0" columnsL="6" columnsXL="4" columnsM="12" adjustLabelSpan="true" class="editableForm">
+					<Title id="tableHeader" text="{i18n>labelInputReceiving}" textAlign="Right">
+						<layoutData>
+							<layout:GridData span="L2 M3 S4" linebreakS="true"/>
+						</layoutData>
+					</Title>
+					<SearchField id="idInputReceiving" liveChange="onReceivingSearch" search="onReceivingSearch" tooltip="" width="auto" placeholder="">
+						<layoutData>
+							<layout:GridData span="L4 M6 S6"/>
+						</layoutData>
+					</SearchField>
+					<Button id="idRefresh" text="" icon="sap-icon://refresh" class="sapUiSmallMarginEnd" tooltip="" press="onRefresh" width="100%">
+						<layoutData>
+							<layout:GridData span="L1 M1 S2"/>
+						</layoutData>
+					</Button>
+				</form:SimpleForm>
+				<!--</VBox>-->
+				<Table id="idTableRecebimento" busyIndicatorDelay="0" class="" growing="true" growingScrollToLoad="true" noDataText="{i18n>NoDataFound}" updateFinished="onUpdateFinished" width="auto" itemPress="onPress" items="{ path: 'Recebimento>/', sorter: { path: 'Benum', descending: false } }">
+					<!--<headerToolbar>-->
+					<!--</headerToolbar>-->
+					<columns>
+						<Column id="nameColumn">
+							<Text id="nameColumnTitle" text="{i18n>CollumnTableReceiving}"/>
+						</Column>
+						<Column id="unitNumberColumn">
+							<Text id="unitNumberColumnTitle" text="{i18n>CollumnTableNT}"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+							<Text id="nameSupplier" text="Fornecedor"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation">
+							<cells>
+								<Text text="{Recebimento>Benum}"/>
+								<Text text="{Recebimento>Tbnum}"/>
+								<Text text="{Recebimento>Lifnr} - {Recebimento>Name1}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

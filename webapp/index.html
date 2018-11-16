@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="Chrome"/>
+		<meta charset="UTF-8">
+		<title>Entrada de Mercadorias</title>
+		<script
+			id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize_plus"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-preload="async"
+			data-sap-ui-resourceroots='{"aplicacao": "./", "sap.ui.demo.mock": "model"}'>
+		</script>
+		
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+		<script>
+			sap.ui.getCore().attachInit(function () {
+				new sap.ui.core.ComponentContainer({
+					height : "100%",
+					name : "aplicacao"
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

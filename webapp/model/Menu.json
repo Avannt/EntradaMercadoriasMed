@@ -1,0 +1,21 @@
+{
+	"Principal": [{
+		"id": "idAprovacaoLimiteCredito",
+		"icon": "activity-individual",
+		"title": "Limites de Créditos",
+		"infoState": "Success",
+		"info": "",
+		"type": "None",
+		"numberUnit": " ",
+		"number": "- Aprovações"
+	},{
+		"id": "idAprovacaoOrdemVenda",
+		"icon": "activity-2",
+		"title": "Ordens de Vendas",
+		"infoState": "Success",
+		"info": "",
+		"type": "None",
+		"numberUnit": "",
+		"number": "- Aprovações"
+	}]
+}

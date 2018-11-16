@@ -1,0 +1,165 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:layout="sap.ui.layout" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	controllerName="aplicacao.controller.MovFlowRack_3" displayBlock="true">
+	<Page id="detail" title="{i18n>TittlePagePositionComodity}" enableScrolling="true" contentOnlyBusy="true" busy="false"
+		floatingFooter="false" navButtonPress="onNavBack" showNavButton="false">
+		<content>
+			<VBox class="">
+				<VBox>
+					<f:Form id="FormToolbar2" editable="true" ariaLabelledBy="Title1">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="1" labelSpanL="1" labelSpanM="2" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="2" emptySpanL="2"
+								emptySpanM="2" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true" width="100%"/>
+						</f:layout>
+						<f:FormContainer ariaLabelledBy="Title6">
+							<f:formElements>
+								<f:FormElement label="Tipo de Depósitos de Origem">
+									<f:fields>
+										<ComboBox id="idTiposDepositosOrigem" editable="false" selectedKey="{tipoDepositoOrigem>Lgtyp}" showSecondaryValues="true"
+											items="{ path: 'tipoDepositoOrigem>/'}" selectionChange="onTipoDepositoChange">
+											<core:ListItem key="{tipoDepositoOrigem>Lgtyp}" text="{tipoDepositoOrigem>Lgtyp} - {tipoDepositoOrigem>Ltypt}"
+												additionalText="{tipoDepositoOrigem>Lgtyp}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Tipo de Depósitos de Destino">
+									<f:fields>
+										<ComboBox id="idTiposDepositosDestino" editable="false" selectedKey="{tipoDepositoDestino>Lgtyp}" showSecondaryValues="true"
+											items="{ path: 'tipoDepositoDestino>/'}" selectionChange="onTipoDepositoChange">
+											<core:ListItem key="{tipoDepositoDestino>Lgtyp}" text="{tipoDepositoDestino>Lgtyp} - {tipoDepositoDestino>Ltypt}"
+												additionalText="{tipoDepositoDestino>Lgtyp}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Posição">
+									<f:fields>
+										<Input id="idInputPosicao" submit="onBuscaMateriais">
+											<layoutData>
+												<layout:GridData span="L3 M5"/>
+											</layoutData>
+										</Input>
+										<Button id="idButtonCodePosicao" text="Ler Cód. Posição" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+											press="onBarcodeOpen2" width="100%"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement id="idFormTable" label="" visible="false">
+									<f:fields>
+										<Table id="idListaMateriais" busyIndicatorDelay="0" alternateRowColors="true" growing="true" growingScrollToLoad="true"
+											noDataText="Nenhum material encontrado!" width="auto" mode="None"
+											items="{ path: 'ListaMateriais>/', sorter: { path: 'IdItem', descending: true }}">
+											<columns>
+												<Column>
+													<Text text="Nº Mat" width="60px" textAlign="Left"/>
+												</Column>
+												<Column>
+													<Text text="{i18n>CollumnCharge}" textAlign="Left"/>
+												</Column>
+												<Column>
+													<Text text="Data Venc" textAlign="Left"/>
+												</Column>
+												<Column demandPopin="true" minScreenWidth="800px" popinDisplay="Inline">
+													<Text text="{i18n>CollumnQuantity}" textAlign="Left"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Inactive">
+													<cells>
+														<Text text="{ListaMateriais>Matnr}" textAlign="Left"/>
+														<Text text="{ListaMateriais>Charg}" textAlign="Left"/>
+														<Text text="{ListaMateriais>Vfdat}" textAlign="Left"/>
+														<Text text="{ListaMateriais>Gesme}" textAlign="Left"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Etiqueta">
+									<f:fields>
+										<!--<Label text="" textAlign="Right"></Label>-->
+										<Input id="idInputEtiqueta" submit="onEtiqueta">
+											<layoutData>
+												<layout:GridData span="L3 M5"/>
+											</layoutData>
+										</Input>
+										<Button id="idButtonCodeEtiqueta" text="Ler Cód. Etiqueta" icon="sap-icon://bar-code" class="sapUiSmallMarginEnd" tooltip=""
+											press="onBarcodeOpen1" width="100%"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Quantidade">
+									<f:fields>
+										<Input id="idInputQuantidade">
+											<layoutData>
+												<layout:GridData span="L3 M5"/>
+											</layoutData>
+										</Input>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="">
+									<f:fields>
+										<!--<Label text="" textAlign="Right"></Label>-->
+										<!--<Button id="idButtonIndividual" type="Emphasized" text="Caixa Individual" class="sapUiSmallMarginEnd" tooltip="Beep Caixa Individual" press="onBeepCxIndividual"/>-->
+										<!--<Label text="" textAlign="Right"></Label>-->
+										<Button id="idButtonInserir" type="Emphasized" text="Qtde de Caixa" class="sapUiSmallMarginEnd" tooltip="Beep Unitário de Caixa"
+											press="onInserirCaixa"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:Form>
+				</VBox>
+				<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+					<Table id="idTableItens" busyIndicatorDelay="{worklistView>/tableBusyDelay}" mode="Delete" delete="onDelete" alternateRowColors="true"
+						class="" growing="true" growingScrollToLoad="true" noDataText="Nenhuma caixa alocada!" updateFinished="onUpdateFinished" width="auto"
+						items="{ path: 'ItensGuardados>/', sorter: { path: 'IdItem', descending: true }}">
+						<!--<headerToolbar>-->
+						<!--	<Toolbar>-->
+						<!--		<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+						<!--		<ToolbarSpacer/>-->
+						<!--		<SearchField id="searchField" search="onSearch" tooltip="{i18n>worklistSearchTooltip}" width="auto"/>-->
+						<!--	</Toolbar>-->
+						<!--</headerToolbar>-->
+						<columns>
+							<Column width="60px" hAlign="Left">
+								<Text text="{i18n>CollumnId}" textAlign="Left"/>
+							</Column>
+							<Column width="auto" hAlign="Left">
+								<Text text="{i18n>CollumnPosition}" textAlign="Left"/>
+							</Column>
+							<Column width="auto" minScreenWidth="400px" demandPopin="true" popinDisplay="Inline">
+								<Text text="{i18n>CollumnCharge}" textAlign="Left"/>
+							</Column>
+							<Column width="60px" minScreenWidth="400px" demandPopin="true" popinDisplay="Inline">
+								<Text text="{i18n>CollumnQuantity}" textAlign="Left"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="1000px" popinDisplay="Inline" width="60px">
+								<Text text="{i18n>CollumnBarcode}" textAlign="Left"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Inactive">
+								<cells>
+									<Text text="{ItensGuardados>IdItem}" textAlign="Left"/>
+									<Text text="{ItensGuardados>Posicao}" textAlign="Left"/>
+									<Text text="{ItensGuardados>Charg}" textAlign="Left"/>
+									<Text text="{ItensGuardados>QtdeCx}" textAlign="Left"/>
+									<Text text="{ItensGuardados>Barcode}" textAlign="Left"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</ScrollContainer>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="idButtonOT" type="Accept" text="Gerar O.T." width="100%" icon="sap-icon://action" press="onGerarOT" editable="false"/>
+					<Button id="idButtonBack" type="Reject" text="Cancelar" width="100%" icon="sap-icon://decline" press="onNavBack"/>
+					<!--<Button type="Emphasized" text="Editar"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

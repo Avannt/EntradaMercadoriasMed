@@ -1,0 +1,75 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" controllerName="aplicacao.controller.Login"
+	displayBlock="true">
+	<Page id="detail" title="Autenticação" busyIndicatorDelay="0" contentOnlyBusy="true" busy="false" floatingFooter="false"
+		navButtonPress="onReturnLaunchpad" showNavButton="false" enableScrolling="false">
+		<content>
+			<VBox displayInline="true" fitContainer="true" id="idDialog">
+				<f:Form id="idForm" editable="true" ariaLabelledBy="Title1">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="2" labelSpanL="4" labelSpanM="4" labelSpanS="3" adjustLabelSpan="true" emptySpanXL="4" emptySpanL="2"
+							emptySpanM="2" emptySpanS="0" columnsXL="2" columnsL="4" columnsM="6" singleContainerFullSize="true"/>
+					</f:layout>
+					<f:FormContainer ariaLabelledBy="Title1">
+						<f:formElements>
+							<f:FormElement label="">
+								<f:fields>
+									<Image src="js/medicamental.jpg" width="100%">
+										<layoutData>
+											<l:GridData span="XL4 L4 M4 S6" linebreakXL="false"/>
+										</layoutData>
+									</Image>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Login">
+								<f:fields>
+									<Input id="idLogin" type="Text" class="sapUiSmallMarginEnd" submit="onLoginSubmit" width="100%">
+										<layoutData>
+											<l:GridData span="XL4 L4 M4 S6" linebreakXL="false"/>
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Senha">
+								<f:fields>
+									<Input id="idSenha" text="" type="Password" class="sapUiSmallMarginEnd" submit="onCheckLogin" width="100%">
+										<layoutData>
+											<l:GridData span="XL4 L4 M4 S6" linebreakXL="false"/>
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Centros">
+								<f:fields>
+									<ComboBox id="idCentro" showSecondaryValues="true" items="{/Centros}" selectionChange="onNomeCentro">
+										<core:ListItem key="{Werks}" text="{Name1}" additionalText="{Werks}"/>
+										<layoutData>
+											<l:GridData span="XL4 L4 M4 S6" linebreakXL="false"/>
+										</layoutData>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="">
+								<f:fields>
+									<Button id="idButtonEntrar1" text="Entrar" type="Emphasized" press="onCheckLogin" width="100%">
+										<layoutData>
+											<l:GridData span="XL4 L4 M4 S6" linebreakS="false"/>
+										</layoutData>
+									</Button>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:Form>
+			</VBox>
+		</content>
+		<footer>
+			<Bar id="__bar0">
+				<contentRight>
+					<Label text="Versão:" width="100%" id="__label5" design="Bold"/>
+					<Label text="2.01" width="100%" id="idVersao" design="Bold"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

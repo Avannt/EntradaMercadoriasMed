@@ -1,0 +1,10 @@
+{
+	"Products": [{
+		"ProductName": "Dipirona",
+		"UnitsInStock": "1000"
+	}],
+	"Shipping": [{
+		"ProductName": "Dipirona",
+		"ProductShipping": "200"
+	}]
+}
